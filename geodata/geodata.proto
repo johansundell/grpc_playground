@@ -1,0 +1,17 @@
+syntax = "proto3";
+package geodata;
+
+// Generate go code
+// protoc -I geodata/ geodata/geodata.proto --go_out=plugins=grpc:geodata
+
+service GeoData {
+	rpc GetPostalRegion (PostalRegionRequest) returns (PostalRegionResponse) {}
+}
+
+message PostalRegionRequest {
+	int32 zip_code = 1;
+}
+
+message PostalRegionResponse {
+	string postal_region = 1;
+}
